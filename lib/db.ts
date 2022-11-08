@@ -27,7 +27,7 @@ export const Vote = async (id:String,value:number) => {
 
 export const GetSondageById = async (id:String) => {
   const sondage = await getDocs(query(app, where("SondageId", "==", id)))
-  const data = sondage.docs.map(el => el.data())
+  const data = sondage.docs.map(el => ({... el.data(), id: el.id}))
   return data
 }
 
