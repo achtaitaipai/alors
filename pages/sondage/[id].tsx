@@ -5,9 +5,9 @@ import { app } from '../../lib/db'
 export async function getServerSideProps() {
   
   const sondage = await getDocs(app)
-  console.log(sondage.docs.at(0))
+  console.log(sondage.docs[0].data())
 
-  return {props : {sondages: JSON.stringify(sondage.docs)}}
+  return {props : {sondages: (sondage.docs[0].data())}}
 }
 
 type Datas = {
