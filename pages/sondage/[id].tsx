@@ -21,6 +21,8 @@ export default function Sondage({sondage}:Datas) {
   const router = useRouter()
   const { id } = router.query
 
+  //cookies buisness
+  //if(cookie[sondage.])
   console.log(sondage)
 
   return (
