@@ -1,13 +1,15 @@
 import { getDocs } from 'firebase/firestore'
+import { GetServerSidePropsContext } from 'next'
 import { useRouter } from 'next/router'
 import { app } from '../../lib/db'
 
-export async function getServerSideProps() {
+export async function getServerSideProps({req,res}:GetServerSidePropsContext) {
   
   const sondage = await getDocs(app)
-  console.log(sondage.docs[0].data())
+  const data = sondage.docs.map(el => el.data())
+  console.log(data)
 
-  return {props : {sondages: (sondage.docs[0].data())}}
+  return {props : {sondage: data}}
 }
 
 type Datas = {
