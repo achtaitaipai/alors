@@ -1,8 +1,5 @@
-import {collection, getFirestore, getDocs, query, where} from 'firebase/firestore'
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import {collection, getFirestore, getDocs, query, where, doc, updateDoc, increment, addDoc} from 'firebase/firestore'
+import { initializeApp } from "firebase/app"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -12,27 +9,51 @@ const firebaseConfig = {
   storageBucket: process.env.STORAGEBUCKET,
   messagingSenderId: process.env.MESSAGINGSENDERID,
   appId: process.env.APPID
-};
+}
 
 // Initialize Firebase
-export const app = collection(getFirestore(initializeApp(firebaseConfig)),"images");
+const imagesCollection = collection(getFirestore(initializeApp(firebaseConfig)),"images")
 
-export const CreateSondage = async ([]) => {
+type Images = {file:string,commentaire:string}[]
 
+export const CreateSondage = async (images:Images, userId:string) => {
+  //TODO : check user is correct, authed, etc. 
+
+  //gen new sondage id
+  //const sondageId = Symbol()
+  const sondageId = Math.random().toString(16).slice(2)
+
+  for(var i=0;i<images.length;i++){
+    //add to db
+    await addDoc(imagesCollection, {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "Commentaire": images[i].commentaire,
+      "File": images[i].file,
+      "SondageId": sondageId,
+      "CreateurId": userId
+    });
+  }
 }
 
-export const Vote = async (id:String,value:number) => {
-
+export const Vote = async (id:string,value:number) => {
+  const imageRef = doc(imagesCollection,id)
+  await updateDoc(imageRef, {
+    [value] : increment(1)
+  })
 }
 
-export const GetSondageById = async (id:String) => {
-  const sondage = await getDocs(query(app, where("SondageId", "==", id)))
+export const GetSondageById = async (id:string) => {
+  const sondage = await getDocs(query(imagesCollection, where("SondageId", "==", id)))
   const data = sondage.docs.map(el => ({... el.data(), id: el.id}))
   return data
 }
 
-export const GetSondagesByUserId = async (id:String) => {
-  const sondage = await getDocs(query(app, where("CreateurId", "==", id)))
+export const GetSondagesByUserId = async (id:string) => {
+  const sondage = await getDocs(query(imagesCollection, where("CreateurId", "==", id)))
   const data = sondage.docs.map(el => el.data())
   return data
 }
