@@ -1,17 +1,15 @@
-import { getDocs, query, where } from 'firebase/firestore'
 import { GetServerSidePropsContext } from 'next'
 import { useRouter } from 'next/router'
-import { app } from '../../lib/db'
+import { GetSondageById } from '../../lib/db'
 
 export async function getServerSideProps(context:GetServerSidePropsContext) {
-
-  console.log(context.params?.id)
-  
-  const sondage = await getDocs(query(app, where("SondageId", "==", context.params?.id)))
-  const data = sondage.docs.map(el => el.data())
-  console.log(data)
-
-  return {props : {sondage: data}}
+  try {
+    const id = context.params!.id as string
+    return {props : {sondage: await GetSondageById(id)}}
+  } catch (error) {
+    console.log(error)
+    return {props : {error : error}}
+  }
 }
 
 type Datas = {
