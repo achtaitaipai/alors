@@ -6,8 +6,10 @@ specifiers:
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.8
   '@vanilla-extract/css': ^1.9.1
+  '@vanilla-extract/dynamic': ^2.0.2
   '@vanilla-extract/next-plugin': ^2.1.1
   '@vanilla-extract/vite-plugin': ^3.6.1
+  clsx: ^1.2.1
   eslint: 8.27.0
   eslint-config-next: 13.0.2
   firebase: ^9.13.0
@@ -23,6 +25,8 @@ dependencies:
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.8
   '@vanilla-extract/css': 1.9.1
+  '@vanilla-extract/dynamic': 2.0.2
+  clsx: 1.2.1
   eslint: 8.27.0
   eslint-config-next: 13.0.2_rmayb2veg2btbq6mbmnyivgasy
   firebase: 9.13.0
@@ -2257,6 +2261,12 @@ packages:
       media-query-parser: 2.0.2
       outdent: 0.8.0
 
+  /@vanilla-extract/dynamic/2.0.2:
+    resolution: {integrity: sha512-U4nKaEQ8Kuz+exXEr51DUpyaOuzo24/S/k1YbDPQR06cYcNjQqvwFRnwWtZ+9ImocqM1wTKtzrdUgSTtLGIwAg==}
+    dependencies:
+      '@vanilla-extract/private': 1.0.3
+    dev: false
+
   /@vanilla-extract/integration/6.0.0:
     resolution: {integrity: sha512-uBz4QAhKYswyhN3LYd4duuN3uq7WT1jKckd0sP2+Y8gL+6UXdhN9QOUvNBfvofkrYYWqS8efH4hnsGyyWW8f+w==}
     dependencies:
@@ -2683,6 +2693,11 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
+    dev: false
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert/1.9.3:

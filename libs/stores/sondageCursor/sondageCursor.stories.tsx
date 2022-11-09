@@ -27,11 +27,11 @@ const Cursor: React.FC<Props> = ({ id }) => {
 
 export const story = () => (
 	<>
-		<Cursor id="1" />;
-		<Cursor id="2" />;
-		<Cursor id="3" />;
-		<Cursor id="2" />;
-		<Cursor id="1" />;
+		<Cursor id="1" />
+		<Cursor id="2" />
+		<Cursor id="3" />
+		<Cursor id="2" />
+		<Cursor id="1" />
 	</>
 )
 story.storyName = 'SondageCursor'
