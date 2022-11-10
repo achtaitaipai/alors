@@ -1,0 +1,58 @@
+{
+	"React component": {
+		"scope": "typescriptreact",
+		"prefix": "simplecomponent",
+		"body": [
+			"interface ${1:Component}Props{",
+			"}",
+			"",
+			"const ${1:Component}: React.FC<${1:Component}Props> = (props) => (",
+				"\t<div>composant : ${1:Component}</div>",
+			")",
+			"",
+			"export default ${1:Component}",
+		],
+	},
+	"React component who extends from htmlelement": {
+		"scope": "typescriptreact",
+		"prefix": "componenthtml",
+		"body": [
+			"interface ${1:Component}Props extends React.HTMLAttributes<${2:HTMLElement}> {",
+			  "}",
+			  "",
+			  "const ${1:Component}: React.FC<${1:Component}Props> = (props) => (",
+				"\t<div {...props}>composant : ${1:Component}</div>",
+			  ")",
+			  "",
+			  "export default ${1:Component}"
+		],
+	},
+	"React component with children": {
+		"scope": "typescriptreact",
+		"prefix": "componentchildren",
+		"body": [
+			"import React from 'react'",
+			"",
+			"interface ${1:Component}Props{",
+				"\tchildren:React.ReactNode",
+			"}",
+			"",
+			"const ${1:Component}: React.FC<${1:Component}Props> = ({children}) => (",
+				"\t<div>{children}</div>",
+			")",
+			"",
+			"export default ${1:Component}",
+		],
+	},
+	"Storie": {
+		"scope": "typescriptreact",
+		"prefix": "ladlestorie",
+		"body": [
+			"import ${1:Component} from '.'",
+			"",
+			"export const story = () => <${1:Component} title='Clique'/>",
+			"story.storyName='${1:Component}'",
+		],
+	}
+
+}
