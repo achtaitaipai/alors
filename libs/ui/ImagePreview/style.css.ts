@@ -1,21 +1,22 @@
-import { createVar, style } from '@vanilla-extract/css'
+import { style } from '@vanilla-extract/css'
 
-export const transformVars = createVar()
+export const wrapperStyle = style({
+	width: '100%',
+	position: 'relative',
+})
 
 export const ImagePreviewStyle = style({
 	position: 'relative',
 	width: '100%',
-	// border: '1px solid black',
-	// petite feinte pour élargir la zone de la souris
-	margin: -50,
-	padding: 50,
+	padding: 0,
+	margin: 0,
 	transformOrigin: '50% 50%',
-	transform: 'perspective(800px) rotateY(calc(var(--mouseX) * 10deg)) rotateX(calc(var(--mouseY) * 10deg))',
+	transform: 'perspective(1000px) rotateY(calc(var(--mouseX) * 15deg)) rotateX(calc(var(--mouseY) * 15deg))',
 	transition: 'transform .3s',
 	':before': {
 		content: '',
 		position: 'absolute',
-		inset: 50,
+		inset: 0,
 		background: 'black',
 		zIndex: -1,
 		transform: 'translate(calc(var(--mouseX) * -10px),calc(var(--mouseY) * 10px))',
@@ -23,6 +24,13 @@ export const ImagePreviewStyle = style({
 		filter: 'blur(5px)',
 		opacity: 0.5,
 	},
+})
+
+export const mouseSensibleStyle = style({
+	position: 'absolute',
+	inset: -80,
+	// pointerEvents: 'none',
+	// border: '1px solid black',
 })
 
 export const ImageStyle = style({

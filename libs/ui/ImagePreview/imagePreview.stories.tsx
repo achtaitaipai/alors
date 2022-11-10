@@ -5,7 +5,7 @@ const args = {
 }
 
 export const story = () => (
-	<div style={{ width: '300px', height: '300px' }}>
+	<div style={{ width: '300px' }}>
 		<ImagePreview {...args} />
 	</div>
 )

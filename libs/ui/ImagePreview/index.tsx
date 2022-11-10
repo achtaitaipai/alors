@@ -1,40 +1,29 @@
-import React, { MouseEventHandler, useMemo, useState } from 'react'
+import React, { useMemo, useRef } from 'react'
 import { cssVariables } from '../../helpers/cssVariables'
-import { ImagePreviewStyle, ImageStyle, LegendStyle } from './style.css'
+import { useMousePosition } from '../../hooks/useMousePosition'
+import { ImagePreviewStyle, ImageStyle, LegendStyle, mouseSensibleStyle, wrapperStyle } from './style.css'
 
 interface ImagePreviewProps {
 	src: string
 }
 
-type Position = [number, number]
-
 const ImagePreview: React.FC<ImagePreviewProps> = ({ src }) => {
-	const [mousePositon, setMousePosition] = useState<Position>([0, 0])
+	const ref = useRef<HTMLDivElement>(null)
+	const mousePosition = useMousePosition(ref)
 
 	const style = useMemo(() => {
-		const [rx, ry] = mousePositon
+		const [rx, ry] = mousePosition
 		return cssVariables({ '--mouseX': rx.toString(), '--mouseY': ry.toString() })
-	}, [mousePositon])
-
-	const handleMouseMove: MouseEventHandler<HTMLElement> = e => {
-		const element = e.currentTarget
-		const { left, top, width, height } = element.getBoundingClientRect()
-		const centerX = left + width / 2
-		const centerY = top + height / 2
-		const x = (e.clientX - centerX) / (width / 2)
-		const y = (centerY - e.clientY) / (height / 2)
-		setMousePosition([x, y])
-	}
-
-	const resetMousePosition = () => {
-		setMousePosition([0, 0])
-	}
+	}, [mousePosition])
 
 	return (
-		<figure style={style} className={ImagePreviewStyle} onMouseMove={handleMouseMove} onMouseOut={resetMousePosition}>
-			<img src={src} className={ImageStyle} />
-			<figcaption className={LegendStyle}> Titre </figcaption>
-		</figure>
+		<div className={wrapperStyle}>
+			<figure style={style} className={ImagePreviewStyle}>
+				<img src={src} className={ImageStyle} />
+				<figcaption className={LegendStyle}> Titre </figcaption>
+			</figure>
+			<div className={mouseSensibleStyle} ref={ref} />
+		</div>
 	)
 }
 
