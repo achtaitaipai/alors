@@ -1,12 +1,19 @@
-import { app } from "../lib/db";
-import {Button} from "../lib/ui/Button";
+import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 
 export default function Home() {
-  console.log(app);
-  return (
-    <>
-    <h1>Wesh ça marche</h1>
-    <Button title="Clique" onClick={()=>console.log('cliqué')}/>
-    </>
-  )
+	const supabaseClient = useSupabaseClient()
+	const user = useUser()
+
+	return (
+		<div>
+			<pre>{user?.email}</pre>
+			<button
+				onClick={async () => {
+					await supabaseClient.auth.signOut()
+				}}
+			>
+				click here to log out
+			</button>
+		</div>
+	)
 }
