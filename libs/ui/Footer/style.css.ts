@@ -2,19 +2,29 @@ import { style } from '@vanilla-extract/css'
 import { colors } from '../../style/colors/index.css'
 import { vars } from '../../style/variables/index.css'
 
-export const buttonStyle = style({
-	cursor: 'pointer',
-	height: vars.sizes[7],
-	paddingInline: 15,
+export const footerStyle = style({
+	width: '100vw',
+	height: '30px',
+	padding: '5px',
 	background: colors.brand4,
 	color: colors.neutral12,
-	borderColor: colors.brand6,
-	borderWidth: 1,
-	borderStyle: 'solid',
-	fontSize: '1.1rem',
-	':hover': {
-		background: colors.brand5,
-		borderColor: colors.brand7,
-		color: colors.neutral11,
-	},
+	fontSize: '1rem'
+})
+
+export const footerLogoStyle = style({
+	width: '100vw',
+	height: '30px',
+	padding: '5px',
+	background: colors.brand4,
+	color: colors.neutral12,
+	fontSize: '1rem'
+})
+
+export const footerLinkStyle = style({
+	width: '100vw',
+	height: '30px',
+	padding: '5px',
+	background: colors.brand4,
+	color: colors.neutral12,
+	fontSize: '1rem'
 })
