@@ -32,13 +32,13 @@ const SignIn: React.FC<SignInProps> = ({
           placeholder="emmanuel@elysee.fr"
         />
         <Input type="password" label="password :" name="password" />
-        <BasicLink href="/auth/for" className={linkStyle}>
+        <BasicLink href="/reset" className={linkStyle}>
           Forgot Password?
         </BasicLink>
         {error && <Error title={error.title}>{error.message}</Error>}
         <Button busy={loading}>Login</Button>
         <p style={{ justifySelf: "end" }}>
-          New to Alors? <BasicLink href="/">Register</BasicLink>
+          <BasicLink href="/signup">New to Alors?</BasicLink>
         </p>
       </form>
     </FormCard>

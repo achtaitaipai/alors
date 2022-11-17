@@ -4,6 +4,7 @@ import Button from "../../Button";
 import Error from "../../Error";
 import FormCard from "../../FormCard";
 import Input from "../../Input";
+import Success from "../../Success";
 import { formStyle } from "./style.css";
 
 interface SignUpProps extends React.HTMLAttributes<HTMLFormElement> {
@@ -12,11 +13,13 @@ interface SignUpProps extends React.HTMLAttributes<HTMLFormElement> {
     message: string;
   };
   loading?: boolean;
+  success?: string;
 }
 
 const SignUp: React.FC<SignUpProps> = ({
   error,
   loading = false,
+  success,
   ...props
 }) => {
   return (
@@ -31,11 +34,17 @@ const SignUp: React.FC<SignUpProps> = ({
         />
         <Input type="password" name="password" label="password :" />
         {error && <Error title={error.title}>{error.message}</Error>}
-        <Button busy={loading}>Continue</Button>
+        {success ? (
+          <Success>{success}</Success>
+        ) : (
+          <Button busy={loading}>Continue</Button>
+        )}
       </form>
-      <p>
-        Joined us before ? <BasicLink href={"/auth/login"}>Login</BasicLink>
-      </p>
+      {!success && (
+        <p>
+          <BasicLink href={"/signin"}> Already have an account ?</BasicLink>
+        </p>
+      )}
     </FormCard>
   );
 };
