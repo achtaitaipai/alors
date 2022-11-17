@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@fontsource/roboto': ^4.5.8
   '@ladle/react': ^2.4.5
   '@supabase/auth-helpers-nextjs': ^0.5.1
   '@supabase/auth-helpers-react': ^0.3.1
@@ -22,6 +23,7 @@ specifiers:
   zustand: ^4.1.4
 
 dependencies:
+  '@fontsource/roboto': 4.5.8
   '@ladle/react': 2.4.5_acshzr5mj3iyamcqj7h6qlricm
   '@supabase/auth-helpers-nextjs': 0.5.1_zj6vbgpit7u2xp5t7lhhtyhq6e
   '@supabase/auth-helpers-react': 0.3.1_zj6vbgpit7u2xp5t7lhhtyhq6e
@@ -1342,6 +1344,10 @@ packages:
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@fontsource/roboto/4.5.8:
+    resolution: {integrity: sha512-CnD7zLItIzt86q4Sj3kZUiLcBk1dSk81qcqgMGaZe7SQ1P8hFNxhMl5AZthK1zrDM5m74VVhaOpuMGIL4gagaA==}
     dev: false
 
   /@humanwhocodes/config-array/0.11.7:

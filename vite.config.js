@@ -1,5 +1,8 @@
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 
 export default {
-  plugins: [vanillaExtractPlugin()]
-};
+	plugins: [vanillaExtractPlugin()],
+	define: {
+		'process.env': process.env,
+	},
+}

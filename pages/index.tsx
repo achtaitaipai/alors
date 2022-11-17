@@ -14,6 +14,8 @@ export default function Home() {
 			>
 				click here to log out
 			</button>
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eius ducimus sint, explicabo quam illum ipsam cumque modi maxime pariatur nostrum iusto sed hic
+			saepe ipsum vero? Sit officiis aliquam asperiores?
 		</div>
 	)
 }

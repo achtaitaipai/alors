@@ -10,6 +10,7 @@
 		"stories": "ladle serve"
 	},
 	"dependencies": {
+		"@fontsource/roboto": "^4.5.8",
 		"@ladle/react": "^2.4.5",
 		"@supabase/auth-helpers-nextjs": "^0.5.1",
 		"@supabase/auth-helpers-react": "^0.3.1",
