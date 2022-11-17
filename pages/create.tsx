@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 
 export default function Create() {
-	//const supabaseClient = useSupabaseClient()
+	const supabaseClient = useSupabaseClient()
 	const user = useUser()
     const router = useRouter()
 
