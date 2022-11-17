@@ -1,20 +1,31 @@
-interface ResetPasswordProps extends React.HTMLAttributes<HTMLFormElement> {}
+import Button from "../../Button";
+import Error from "../../Error";
+import FormCard from "../../FormCard";
+import { formCardStyle } from "../../FormCard/style.css";
+import Input from "../../Input";
+import { formStyle } from "./style.css";
 
-const ResetPassword: React.FC<ResetPasswordProps> = props => (
-	<>
-		<h2>Reset Password</h2>
-		<form {...props}>
-			<label htmlFor="password">
-				New Password :
-				<input type="password" name="password" id="password" />
-			</label>
-			<label htmlFor="confirm-password">
-				Confirm new password :
-				<input type="password" name="confirm-password" id="confirm-password" />
-			</label>
-			<input type="submit" value="Submit" />
-		</form>
-	</>
-)
+interface ResetPasswordProps extends React.HTMLAttributes<HTMLFormElement> {
+  error?: {
+    title?: string;
+    message: string;
+  };
+  loading?: boolean;
+}
 
-export default ResetPassword
+const ResetPassword: React.FC<ResetPasswordProps> = ({
+  error,
+  loading = false,
+  ...props
+}) => (
+  <FormCard>
+    <h2>Reset Password 🤣</h2>
+    <form {...props} className={formStyle}>
+      <Input type="password" name="password" label="new password :" />
+    </form>
+    {error && <Error title={error.title}>{error.message}</Error>}
+    <Button busy={loading}>Reset</Button>
+  </FormCard>
+);
+
+export default ResetPassword;

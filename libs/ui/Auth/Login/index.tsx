@@ -1,30 +1,46 @@
+import { error } from "console";
 import Link from "next/link";
+import BasicLink from "../../BasicLink";
 import Button from "../../Button";
+import Error from "../../Error";
 import FormCard from "../../FormCard";
 import Input from "../../Input";
 import { formStyle } from "../ForgotPassword/style.css";
 import { linkStyle } from "./style.css";
 
-interface SignInProps extends React.HTMLAttributes<HTMLFormElement> {}
+interface SignInProps extends React.HTMLAttributes<HTMLFormElement> {
+  error?: {
+    title?: string;
+    message: string;
+  };
+  loading?: boolean;
+}
 
-const SignIn: React.FC<SignInProps> = (props) => {
+const SignIn: React.FC<SignInProps> = ({
+  error,
+  loading = false,
+  ...props
+}) => {
   return (
     <FormCard>
-      <h2>Login</h2>
+      <h2>Login 🏡</h2>
       <form {...props} className={formStyle}>
-        <Input type="text" label="email" name="email" />
-        <Input type="password" label="password" name="password" />
-        <a href="/auth/for" className={linkStyle}>
+        <Input
+          type="text"
+          label="email :"
+          name="email"
+          placeholder="emmanuel@elysee.fr"
+        />
+        <Input type="password" label="password :" name="password" />
+        <BasicLink href="/auth/for" className={linkStyle}>
           Forgot Password?
-        </a>
-        <Button>Login</Button>
+        </BasicLink>
+        {error && <Error title={error.title}>{error.message}</Error>}
+        <Button busy={loading}>Login</Button>
+        <p style={{ justifySelf: "end" }}>
+          New to Alors? <BasicLink href="/">Register</BasicLink>
+        </p>
       </form>
-      <p>
-        New to Alors?{" "}
-        <a href="/auth/signup" className={linkStyle}>
-          Register
-        </a>
-      </p>
     </FormCard>
   );
 };
