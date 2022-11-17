@@ -1,31 +1,43 @@
-import Link from 'next/link'
+import Link from "next/link";
+import BasicLink from "../../BasicLink";
+import Button from "../../Button";
+import Error from "../../Error";
+import FormCard from "../../FormCard";
+import Input from "../../Input";
+import { formStyle } from "./style.css";
 
-interface SignUpProps extends React.HTMLAttributes<HTMLFormElement> {}
-
-const SignUp: React.FC<SignUpProps> = props => {
-	return (
-		<>
-			<h2>Sign Up</h2>
-			<form {...props}>
-				<label htmlFor="email">
-					Email :
-					<input type="text" name="email" id="email" />
-				</label>
-				<label htmlFor="password">
-					Password :
-					<input type="password" name="password" id="password" />
-				</label>
-				<label htmlFor="confirm-password">
-					Confirm password :
-					<input type="password" name="confirm-password" id="confirm-password" />
-				</label>
-				<input type="submit" value="continue" />
-			</form>
-			<p>
-				Joined us before ? <Link href={'/auth/login'}>Login</Link>
-			</p>
-		</>
-	)
+interface SignUpProps extends React.HTMLAttributes<HTMLFormElement> {
+  error?: {
+    title?: string;
+    message: string;
+  };
+  loading?: boolean;
 }
 
-export default SignUp
+const SignUp: React.FC<SignUpProps> = ({
+  error,
+  loading = false,
+  ...props
+}) => {
+  return (
+    <FormCard>
+      <h2>Sign Up 🤗</h2>
+      <form {...props} className={formStyle}>
+        <Input
+          type="email"
+          name="email"
+          label="email :"
+          placeholder="emmanuel@elysee.fr"
+        />
+        <Input type="password" name="password" label="password :" />
+        {error && <Error title={error.title}>{error.message}</Error>}
+        <Button busy={loading}>Continue</Button>
+      </form>
+      <p>
+        Joined us before ? <BasicLink href={"/auth/login"}>Login</BasicLink>
+      </p>
+    </FormCard>
+  );
+};
+
+export default SignUp;

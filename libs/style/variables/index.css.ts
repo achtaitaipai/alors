@@ -25,7 +25,7 @@ const sizes = {
 	fluid7: 'clamp(7.5rem, 10vw, 10rem)',
 	fluid8: 'clamp(10rem, 20vw, 15rem)',
 	fluid9: 'clamp(15rem, 30vw, 20rem)',
-	fluid10: ' clamp(20rem, 40vw, 30rem)',
+	fluid10: 'clamp(20rem, 40vw, 30rem)',
 	radius1: '2px',
 	radius2: '5px',
 	radius3: '1px',

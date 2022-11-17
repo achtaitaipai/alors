@@ -1,11 +1,21 @@
-interface ForgotPasswordProps extends React.HTMLAttributes<HTMLFormElement> {}
-
 import Button from "../../Button";
+import Error from "../../Error";
 import FormCard from "../../FormCard";
 import Input from "../../Input";
 import { formStyle } from "./style.css";
 
-const ForgotPassword: React.FC<ForgotPasswordProps> = (props) => (
+interface ForgotPasswordProps extends React.HTMLAttributes<HTMLFormElement> {
+  error?: {
+    title?: string;
+    message: string;
+  };
+  loading?: boolean;
+}
+const ForgotPassword: React.FC<ForgotPasswordProps> = ({
+  error,
+  loading = false,
+  ...props
+}) => (
   <FormCard>
     <h2>Forgot Password ? 😏</h2>
     <p>
@@ -16,11 +26,12 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = (props) => (
     <form {...props} className={formStyle}>
       <Input
         label="email :"
-        placeholder="john@doe.fr"
+        placeholder="emmanuel@elysee.fr"
         type="text"
         name="email"
       />
-      <Button>Submit</Button>
+      {error && <Error title={error.title}>{error.message}</Error>}
+      <Button busy={loading}>Submit</Button>
     </form>
   </FormCard>
 );
