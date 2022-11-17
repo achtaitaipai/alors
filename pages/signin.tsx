@@ -2,6 +2,7 @@ import { useSupabaseClient, useUser } from '@supabase/auth-helpers-react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { FormEvent } from 'react'
+import Login from '../libs/ui/Auth/Login'
 
 const Page = () => {
 	const supabase = useSupabaseClient()
@@ -16,34 +17,14 @@ const Page = () => {
 		const signin = await supabase.auth.signInWithPassword({ email, password })
 		supabase.auth.refreshSession()
 		if(!signin.error){
-			const {succes_redirect} = router.query
-			if(typeof succes_redirect == "string"){
-				router.push(succes_redirect)
-			}
-			else{
-				router.push("/create")
-			}
+			router.push("/create")
 		} else{
 			alert(signin.error.message)
 		}
 	}
 
 	return (
-		<>
-			<p>{user?.email}</p>
-			<form onSubmit={handleSubmit}>
-				<label htmlFor="email">
-					email :
-					<input type="email" name="email" id="email" />
-				</label>
-				<label htmlFor="password">
-					password :
-					<input type="password" name="password" id="password" />
-				</label>
-				<input type="submit" value="sign-in"></input>
-			</form>
-			<Link href={'/'}>Home</Link>
-		</>
+		<Login onSubmit={handleSubmit}/>
 	)
 }
 
