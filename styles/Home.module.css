@@ -10,6 +10,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: radial-gradient(
+      circle 800px at 700px 200px,
+      #f9f1fe,
+      #fdfcfd00
+    ),
+    radial-gradient(
+      circle 600px at calc(100% - 300px) 300px,
+      #c0efe3,
+      #fdfcfd00
+    ),
+    radial-gradient(circle 800px at right center, #e4f9ff, #fdfcfd00),
+    radial-gradient(circle 800px at right bottom, #e4f9ff, #fdfcfd00),
+    radial-gradient(
+      circle 800px at calc(50% - 600px) calc(100% - 100px),
+      #fce5f3,
+      #fffcfe,
+      #fdfcfd00
+    );
 }
 
 .footer {

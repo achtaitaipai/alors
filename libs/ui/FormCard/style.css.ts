@@ -3,6 +3,10 @@ import { colors } from "../../style/colors/index.css";
 import { vars } from "../../style/variables/index.css";
 
 export const formCardStyle = style({
+  position: "absolute",
+  left: "50%",
+  top: "50%",
+  transform: "translate(-50%,-50%)",
   display: "grid",
   background: colors.gradient1,
   backgroundColor: colors.neutral1,
