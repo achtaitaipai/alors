@@ -4,7 +4,7 @@ import React from 'react'
 
 const Footer = () => (
 	<footer className={footerStyle} >
-        <Link className={footerLogoStyle} href="/">App Logo</Link>
+        <Link className={footerLogoStyle} href="/"></Link>
 		<Link className={footerLinkStyle} href="/about">About</Link>
 		<Link className={footerLinkStyle} href="/legal">Legal</Link>
 	</footer>
