@@ -13,6 +13,7 @@ export const linkStyle = style({
   color: colors.neutral11,
   textDecoration: "none",
   fontSize: vars.typography.size0,
+  width: "fit-content",
   ":after": {
     content: "",
     position: "absolute",

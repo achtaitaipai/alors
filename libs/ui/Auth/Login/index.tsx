@@ -30,15 +30,23 @@ const SignIn: React.FC<SignInProps> = ({
           label="email :"
           name="email"
           placeholder="emmanuel@elysee.fr"
+          required
         />
-        <Input type="password" label="password :" name="password" />
-        <BasicLink href="/reset" className={linkStyle}>
+        <Input type="password" label="password :" name="password" required />
+        <BasicLink
+          href="/reset"
+          className={linkStyle}
+          variant="small"
+          style={{ justifySelf: "end" }}
+        >
           Forgot Password?
         </BasicLink>
         {error && <Error title={error.title}>{error.message}</Error>}
         <Button busy={loading}>Login</Button>
         <p style={{ justifySelf: "end" }}>
-          <BasicLink href="/signup">New to Alors?</BasicLink>
+          <BasicLink href="/signup" variant="small">
+            New to Alors?
+          </BasicLink>
         </p>
       </form>
     </FormCard>

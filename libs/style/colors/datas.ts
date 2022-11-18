@@ -1,31 +1,3 @@
-export const lightGradients = {
-  gradient1:
-    "linear-gradient(120deg, hsl(332 72.1% 91.1%),hsl(209 95.0% 90.1%));",
-  gradientbg: ` radial-gradient(
-		circle 800px at 700px 200px,
-		#f9f1fe,
-		#fdfcfd00
-	  ),
-	  radial-gradient(
-		circle 600px at calc(100% - 300px) 300px,
-		#c0efe3,
-		#fdfcfd00
-	  ),
-	  radial-gradient(circle 800px at right center, #e4f9ff, #fdfcfd00),
-	  radial-gradient(circle 800px at right bottom, #e4f9ff, #fdfcfd00),
-	  radial-gradient(
-		circle 800px at calc(50% - 600px) calc(100% - 100px),
-		#fce5f3,
-		#fffcfe,
-		#fdfcfd00
-	  )`,
-};
-export const darkGradients = {
-  gradient1:
-    "linear-gradient(120deg, hsl(298 34.4% 15.3%),hsl(214 59.4% 15.3%));",
-  gradientbg: `linear-gradient(0deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%)`,
-};
-
 export const colorSystem = {
   light: {
     brand1: "hsl(255, 65.0%, 99.4%)",
@@ -175,4 +147,37 @@ export const colorSystem = {
     info11: "hsl(186, 100%, 42.2%)",
     info12: "hsl(185, 73.0%, 93.2%)",
   },
+};
+
+export const lightGradients = {
+  gradient1:
+    "linear-gradient(120deg, hsl(332 72.1% 91.1%),hsl(209 95.0% 90.1%));",
+  gradientbg: ` radial-gradient(
+		circle 800px at 700px 200px,
+		#f9f1fe,
+		#fdfcfd00
+	  ),
+	  radial-gradient(
+		circle 600px at calc(100% - 300px) 300px,
+		#c0efe3,
+		#fdfcfd00
+	  ),
+	  radial-gradient(circle 800px at right center, #e4f9ff, #fdfcfd00),
+	  radial-gradient(circle 800px at right bottom, #e4f9ff, #fdfcfd00),
+	  radial-gradient(
+		circle 800px at calc(50% - 600px) calc(100% - 100px),
+		#fce5f3,
+		#fffcfe,
+		#fdfcfd00
+	  )`,
+};
+export const darkGradients = {
+  gradient1:
+    "linear-gradient(120deg, hsl(298 34.4% 15.3%),hsl(214 59.4% 15.3%));",
+  gradientbg: `linear-gradient(
+    45deg,
+    hsl(287, 18%, 10%) 0%, 
+    hsl(226, 25%, 10%) 25%,
+    hsl(240, 4%, 9%) 50%)`,
+  // gradientbg: `linear-gradient(0deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%)`,
 };

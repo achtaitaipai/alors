@@ -32,6 +32,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = ({
         placeholder="emmanuel@elysee.fr"
         type="text"
         name="email"
+        required
       />
       {success && <Success>{success}</Success>}
       {error && <Error title={error.title}>{error.message}</Error>}

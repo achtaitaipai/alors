@@ -31,8 +31,9 @@ const SignUp: React.FC<SignUpProps> = ({
           name="email"
           label="email :"
           placeholder="emmanuel@elysee.fr"
+          required
         />
-        <Input type="password" name="password" label="password :" />
+        <Input type="password" name="password" label="password :" required />
         {error && <Error title={error.title}>{error.message}</Error>}
         {success ? (
           <Success>{success}</Success>
@@ -42,7 +43,10 @@ const SignUp: React.FC<SignUpProps> = ({
       </form>
       {!success && (
         <p>
-          <BasicLink href={"/signin"}> Already have an account ?</BasicLink>
+          <BasicLink href={"/signin"} variant="small">
+            {" "}
+            Already have an account ?
+          </BasicLink>
         </p>
       )}
     </FormCard>

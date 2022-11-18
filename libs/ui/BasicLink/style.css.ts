@@ -1,13 +1,13 @@
-import { style } from "@vanilla-extract/css";
+import { style, styleVariants } from "@vanilla-extract/css";
 import { colors } from "../../style/colors/index.css";
 import { vars } from "../../style/variables/index.css";
 
-export const linkStyle = style({
+const base = style({
   position: "relative",
-  justifySelf: "end",
-  color: colors.neutral11,
+  color: colors.neutral10,
   textDecoration: "none",
-  fontSize: vars.typography.size0,
+  width: "fit-content",
+  fontWeight: vars.typography.light,
   ":after": {
     content: "",
     position: "absolute",
@@ -15,13 +15,31 @@ export const linkStyle = style({
     height: 1,
     left: 0,
     top: "100%",
-    background: colors.brand10,
+    background: colors.brand8,
     transform: "scaleX(0)",
     transition: "transform .2s",
+  },
+  ":hover": {
+    color: colors.neutral9,
   },
   selectors: {
     "&:hover::after": {
       transform: "scaleX(1)",
     },
   },
+});
+
+export const linkStyle = styleVariants({
+  primary: [
+    base,
+    {
+      fontSize: vars.typography.size1,
+    },
+  ],
+  small: [
+    base,
+    {
+      fontSize: vars.typography.size0,
+    },
+  ],
 });

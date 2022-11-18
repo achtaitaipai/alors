@@ -4,29 +4,39 @@ import { colors } from "../../style/colors/index.css";
 import { vars } from "../../style/variables/index.css";
 
 export const footerStyle = style({
-  width: "100vw",
-  padding: "5px",
-  background: colors.brand4,
-  color: colors.neutral12,
-  fontSize: "1rem",
+  position: "relative",
+  width: "100%",
+  paddingInline: vars.sizes[4],
+  gap: vars.sizes[7],
+  color: colors.neutral9,
   display: "flex",
   alignItems: "center",
   marginTop: "auto",
+  borderColor: colors.brand2,
+  borderWidth: 0,
+  borderTopWidth: 1,
+  borderStyle: "solid",
+  isolation: "isolate",
+  overflow: "hidden",
+  "::before": {
+    content: "",
+    position: "absolute",
+    inset: 0,
+    background: colors.gradientbg,
+    transform: "scaleX(-1)",
+  },
 });
 
 export const footerLogoStyle = style({
-  width: "60px",
-  height: "60px",
+  zIndex: 1,
+  width: 50,
+  height: 50,
   padding: "5px",
   backgroundImage: "url('/alorsV1ps.png')",
   backgroundSize: "contain",
   display: "block",
   marginRight: "auto",
-});
-
-export const footerLinkStyle = style({
-  paddingRight: "20px",
-  background: colors.brand4,
-  color: colors.neutral8,
-  fontSize: "1rem",
+  ":hover": {
+    filter: `drop-shadow(0 0 0.75rem ${colors.brand7})`,
+  },
 });

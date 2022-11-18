@@ -23,7 +23,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({
   <FormCard>
     <h2>Reset Password 🤣</h2>
     <form {...props} className={formStyle}>
-      <Input type="password" name="password" label="new password :" />
+      <Input type="password" name="password" label="new password :" required />
       {succes && <Success>{succes}</Success>}
       {error && <Error title={error.title}>{error.message}</Error>}
       <Button busy={loading}>Reset</Button>

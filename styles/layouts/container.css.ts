@@ -1,5 +1,6 @@
-import { style } from "@vanilla-extract/css";
+import { createVar, style } from "@vanilla-extract/css";
 import { colors } from "../../libs/style/colors/index.css";
+const noise = createVar();
 
 export const containerStyle = style({
   minHeight: "100%",

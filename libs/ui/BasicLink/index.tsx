@@ -1,14 +1,19 @@
-import Link from "next/link";
 import React from "react";
-import { linkStyle } from "../Auth/Login/style.css";
+import { linkStyle } from "./style.css";
 
 interface BasicLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
   href: string;
   children: React.ReactNode;
+  variant?: keyof typeof linkStyle;
 }
 
-const BasicLink: React.FC<BasicLinkProps> = ({ href, children, ...props }) => (
-  <a {...props} href={href} className={linkStyle}>
+const BasicLink: React.FC<BasicLinkProps> = ({
+  href,
+  children,
+  variant = "primary",
+  ...props
+}) => (
+  <a {...props} href={href} className={linkStyle[variant]}>
     {children}
   </a>
 );
